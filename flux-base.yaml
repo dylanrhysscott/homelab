@@ -4,7 +4,8 @@ metadata:
   name: flux
   namespace: flux-system
   annotations:
-    fluxcd.controlplane.io/reconcileEvery: 5m
+    fluxcd.controlplane.io/reconcileEvery: 1mm
+    fluxcd.controlplane.io/reconcileArtifactEvery: 1m
 spec:
   sync:
     kind: GitRepository
