@@ -22,7 +22,6 @@ spec:
           - cloudflared
           - tunnel
           - --no-autoupdate
-          - --loglevel=debug
           - run
           - 64ecb7e4-55fe-4ab1-a67a-dad9b883fbc5
         env:
