@@ -14,10 +14,6 @@ spec:
         pod: cloudflared
     spec:
       serviceAccountName: cloudflared
-      volumes:
-        - name: config
-          configMap:
-            name: cloudflared
       containers:
       - name: cloudflared
         image: cloudflare/cloudflared:latest
