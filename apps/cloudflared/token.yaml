@@ -2,7 +2,6 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  creationTimestamp: null
   name: cloudflare-token
   namespace: default
 spec:
@@ -10,6 +9,5 @@ spec:
     tunnel_token: AgBzMg/QLJtxLZ5jdt1+hbk6qJlScMurUqWy5KK+rbhHwpycpjjhjFRTGivG39NfdEzamDAJOLWhEfV6rkDwVvdxpbS8zGDQLc1K4gmKyAnLFGMBgRs8YPzMwP1oTNIg8wOtU82nj6snLi+qJNUlMtPjfohezVS8cXAHUCZ/VnBom9OCZOeELjj3NNj6DTuoA2xck8/8/kNMpv4pEzSg+w/0AEJ84aMZVrZjlXF+Z8/YKBaqbL5dOAvHnJ8voPe51qEbQFJACQXrvh8C/z0/xdtH9d8oeTDNOZOrCDO28qZTPFnThERgX8NFE3fa3U0HEWdBxBMUsLOuhIUAZx96X5thGdm9wcwcRxoLhm5ULcLgrVmgUdi0Y7VO3I3chHPdFgJJkv9eooWQUvjZGDTd0k0e/mLQ6VHk/Xwz9yVsZntTFq4ypo/tI5oeMyqMyxfMUbhbLmiyHw4q+I95uaMX+etsfnmPFLVXgmBwpaoWsHwLsa1+RPnEnNXXCKW/gU/3WTHCF6X3ADxZN2cHA3jbagRKW1U3YRA2udi/5+JUM8uR4xgCCcurQdGwmZ819Zq7Axh3sI6XywMJYYoNAvfRrp/au3KaMqKCIEexA084iMyD/JQuet80fu6FaaFo9VE74XixgUHYTXgZIKvFX9YizvEOWyoJoxRZZRAH+8W2VA0dX7WNHyiUUt8YVBjF+GGIp6gz1f6+4piMA3xQvTWatWeefjXzTmSSMDR8TGacCHRgJgL8m8qafw==
   template:
     metadata:
-      creationTimestamp: null
       name: cloudflare-token
       namespace: default

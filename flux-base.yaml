@@ -4,7 +4,7 @@ metadata:
   name: flux
   namespace: flux-system
   annotations:
-    fluxcd.controlplane.io/reconcileEvery: 1mm
+    fluxcd.controlplane.io/reconcileEvery: 1m
     fluxcd.controlplane.io/reconcileArtifactEvery: 1m
 spec:
   sync:
