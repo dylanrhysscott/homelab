@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            - name: cloudflared
+            name: cloudflared
       containers:
       - name: cloudflared
         image: cloudflare/cloudflared:latest
