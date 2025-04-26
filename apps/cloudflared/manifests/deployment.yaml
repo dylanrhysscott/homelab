@@ -31,10 +31,3 @@ spec:
             secretKeyRef:
               name: cloudflare-token
               key: tunnelToken
-        livenessProbe:
-          httpGet:
-            path: /ready
-            port: 2000
-          failureThreshold: 1
-          initialDelaySeconds: 10
-          periodSeconds: 10
