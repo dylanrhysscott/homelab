@@ -22,16 +22,11 @@ spec:
       - name: cloudflared
         image: cloudflare/cloudflared:latest
         imagePullPolicy: "Always"
-        # volumeMounts:
-        # - name: config
-        #   mountPath: /etc/cloudflared
         command:
           - cloudflared
           - tunnel
-          # - --config=/etc/cloudflared/config.yaml
           - --no-autoupdate
-          - --metrics
-          - 0.0.0.0:2000
+          - --loglevel=debug
           - run
           - 64ecb7e4-55fe-4ab1-a67a-dad9b883fbc5
         env:
