@@ -8,6 +8,20 @@ spec:
   interval: 1h
   url: https://cloudflare.github.io/helm-charts
 ---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: cloudflare-tunnel-remote
+  namespace: default
+spec:
+  interval: 5m0s
+  chart: cloudflare-tunnel-remote
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: cloudflared
+  version: '5.*'
+---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -16,8 +30,8 @@ metadata:
 spec:
   interval: 5m
   chartRef:
-    kind: HelmRepository
-    name: cloudflared
+    kind: HelmChart
+    name: cloudflare-tunnel-remote
     namespace: default
   valuesFrom:
     - kind: Secret
