@@ -22,9 +22,9 @@ spec:
       - name: cloudflared
         image: cloudflare/cloudflared:latest
         imagePullPolicy: "Always"
-        volumeMounts:
-        - name: config
-          mountPath: /etc/cloudflared
+        # volumeMounts:
+        # - name: config
+        #   mountPath: /etc/cloudflared
         command:
           - cloudflared
           - tunnel
