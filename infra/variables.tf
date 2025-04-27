@@ -24,3 +24,8 @@ variable "identity_provider_client_secret" {
   type      = string
   sensitive = true
 }
+
+variable "private_network_routes" {
+  type    = map(string)
+  default = {}
+}

@@ -12,13 +12,6 @@ terraform {
   }
 }
 
-resource "cloudflare_zero_trust_tunnel_cloudflared_virtual_network" "network" {
-  account_id         = var.account_id
-  name               = var.name
-  is_default         = false
-  is_default_network = false
-}
-
 resource "cloudflare_zero_trust_access_identity_provider" "identity_provider" {
   config = {
     client_id     = var.identity_provider_client_id
@@ -48,10 +41,11 @@ resource "cloudflare_zero_trust_access_policy" "access_policy" {
   ]
 }
 
-# resource "cloudflare_zero_trust_tunnel_cloudflared_route" "homelab_tunnel_routes" {
-#   for_each = var.cloudflare_tunnel_routing
-#   account_id = local.cloudflare_account_id
-#   network = each.value
-#   tunnel_id = cloudflare_zero_trust_tunnel_cloudflared.homelab_tunnel.id
-#   virtual_network_id = cloudflare_zero_trust_tunnel_cloudflared_virtual_network.homelab.id
-# }
+resource "cloudflare_zero_trust_tunnel_cloudflared_route" "homelab_tunnel_routes" {
+  for_each           = var.warp_routes
+  account_id         = var.account_id
+  network            = each.value
+  comment            = each.key
+  tunnel_id          = cloudflare_zero_trust_tunnel_cloudflared.tunnel.id
+  virtual_network_id = data.cloudflare_zero_trust_tunnel_cloudflared_virtual_network.default_network.id
+}

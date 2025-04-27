@@ -31,3 +31,8 @@ variable "identity_provider_client_secret" {
   type      = string
   sensitive = true
 }
+
+variable "warp_routes" {
+  type    = map(string)
+  default = {}
+}

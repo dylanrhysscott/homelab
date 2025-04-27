@@ -25,4 +25,5 @@ module "zero_trust" {
   email                           = var.email
   identity_provider_client_id     = var.identity_provider_client_id
   identity_provider_client_secret = var.identity_provider_client_secret
+  warp_routes                     = var.private_network_routes
 }
