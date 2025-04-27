@@ -1,0 +1,3 @@
+*.plan
+secrets.auto.tfvars
+.terraform
