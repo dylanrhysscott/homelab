@@ -1,3 +1,4 @@
 *.plan
 secrets.auto.tfvars
 .terraform
+backend.tfvars
