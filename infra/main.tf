@@ -20,4 +20,6 @@ module "zero_trust" {
   identity_provider_client_id     = var.identity_provider_client_id
   identity_provider_client_secret = var.identity_provider_client_secret
   warp_routes                     = var.private_network_routes
+  device_profile = var.device_profile
+  # included_split_tunnel_routes    = var.included_split_tunnel_routes
 }

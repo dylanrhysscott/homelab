@@ -49,3 +49,12 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_route" "homelab_tunnel_routes
   tunnel_id          = cloudflare_zero_trust_tunnel_cloudflared.tunnel.id
   virtual_network_id = data.cloudflare_zero_trust_tunnel_cloudflared_virtual_network.default_network.id
 }
+
+resource "cloudflare_zero_trust_device_custom_profile" "custom_device_profile" {
+  count = var.device_profile != null ? 1 : 0
+  account_id = var.account_id
+  name       = var.device_profile.name
+  precedence = var.device_profile.precedence
+  match      = var.device_profile.match
+  include    = var.device_profile.include
+}

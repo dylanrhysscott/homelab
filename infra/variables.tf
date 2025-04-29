@@ -25,3 +25,17 @@ variable "private_network_routes" {
   type    = map(string)
   default = {}
 }
+
+variable "device_profile" {
+  type = object({
+    name       = string
+    precedence = string
+    match      = string
+    include = optional(list(object({
+      address     = optional(string)
+      host        = optional(string)
+      description = optional(string)
+    })))
+  })
+  default = null
+}
