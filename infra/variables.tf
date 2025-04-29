@@ -1,7 +1,3 @@
-variable "cluster_map" {
-  type = map(string)
-}
-
 variable "email" {
   type      = string
   sensitive = true

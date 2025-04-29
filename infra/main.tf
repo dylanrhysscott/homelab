@@ -13,12 +13,6 @@ terraform {
   }
 }
 
-module "dns" {
-  source             = "./modules/dns"
-  cluster_map        = var.cluster_map
-  cloudflare_zone_id = var.cloudflare_zone_id
-}
-
 module "zero_trust" {
   source                          = "./modules/zero-trust"
   account_id                      = var.cloudflare_account_id
