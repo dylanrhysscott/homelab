@@ -39,3 +39,12 @@ variable "device_profile" {
   })
   default = null
 }
+
+variable "device_profile_fallbacks" {
+  type = list(object({
+    domain = string
+    description = optional(string)
+    dns_server = list(string) 
+  }))
+  default = null
+}
