@@ -41,8 +41,6 @@ resource "cloudflare_zero_trust_access_policy" "access_policy" {
   ]
 }
 
-# Until these resources are fixed in upstream manually have to be added :(
-
 resource "cloudflare_zero_trust_tunnel_cloudflared_route" "homelab_tunnel_routes" {
   for_each           = var.warp_routes
   account_id         = var.account_id
@@ -52,24 +50,28 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_route" "homelab_tunnel_routes
   virtual_network_id = data.cloudflare_zero_trust_tunnel_cloudflared_virtual_network.default_network.id
 }
 
-resource "cloudflare_zero_trust_device_custom_profile" "custom_device_profile" {
-  count = var.device_profile != null ? 1 : 0
-  account_id = var.account_id
-  name       = var.device_profile.name
-  precedence = var.device_profile.precedence
-  match      = var.device_profile.match
-  include    = var.device_profile.include
-}
+# Until these resources are fixed in upstream manually have to be added :(
 
-resource "cloudflare_zero_trust_device_custom_profile_local_domain_fallback" "device_profile_fallback" {
-  for_each = {
-    for k, v in var.device_profile_fallbacks : v.domain => v if var.device_profile != null
-  }
-  account_id = var.account_id
-  policy_id = cloudflare_zero_trust_device_custom_profile.custom_device_profile[0].policy_id
-  domains = [{
-    suffix = each.key
-    description = each.value.description
-    dns_server = each.value.dns_server
-  }]
-}
+
+
+# resource "cloudflare_zero_trust_device_custom_profile" "custom_device_profile" {
+#   count = var.device_profile != null ? 1 : 0
+#   account_id = var.account_id
+#   name       = var.device_profile.name
+#   precedence = var.device_profile.precedence
+#   match      = var.device_profile.match
+#   include    = var.device_profile.include
+# }
+#
+# resource "cloudflare_zero_trust_device_custom_profile_local_domain_fallback" "device_profile_fallback" {
+#   for_each = {
+#     for k, v in var.device_profile_fallbacks : v.domain => v if var.device_profile != null
+#   }
+#   account_id = var.account_id
+#   policy_id = cloudflare_zero_trust_device_custom_profile.custom_device_profile[0].policy_id
+#   domains = [{
+#     suffix = each.key
+#     description = each.value.description
+#     dns_server = each.value.dns_server
+#   }]
+# }
